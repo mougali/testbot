@@ -8,9 +8,9 @@ app.use(bodyParser.json());
 app.listen((process.env.PORT || 3000));
 
 // Server frontpage
-// app.get('/', function (req, res) {
-//     res.send('1729018094');
-// });
+app.get('/', function (req, res) {
+    res.send('This is TestBot');
+});
 
 // Facebook Webhook
 app.get('/webhook', function (req, res) {
