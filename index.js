@@ -48,7 +48,7 @@ const
 
 var app = express();
 
-app.set('port', process.env.PORT || 5000);
+app.set('port', process.env.PORT || 3000);
 app.use(bodyParser.json({ verify: verifyRequestSignature }));
 app.use(express.static('public'));
 
