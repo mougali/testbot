@@ -80,6 +80,13 @@ if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN)) {
 }
 
 /*
+ * Main landing page.
+ */
+ app.get('/', function(req, res) {
+    res.send('This is TestBot');
+ });
+
+/*
  * Use your own validation token. Check that the token used in the Webhook 
  * setup is the same token used here.
  *
