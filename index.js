@@ -259,6 +259,10 @@ function receivedMessage(event) {
         sendReceiptMessage(senderID);
         break;
 
+      case 'hai':
+        sendQuickReplyMessage(senderID);
+        break;
+
       default:
         sendTextMessage(senderID, messageText);
     }
@@ -436,7 +440,34 @@ function sendGenericMessage(recipientId) {
         }
       }
     }
-  };  
+  };
+
+  /*
+   * Send quick-reply messages.
+   * https://developers.facebook.com/docs/messenger-platform/send-api-reference/quick-replies)
+   */
+  function sendQuickReplyMessage(recipientId) {
+      var messageData = {
+          recipient: {
+              id: recipientId
+          },
+          message: {
+              text: "Pick a color:",
+              quick_replies: [
+                  {
+                      content_type: "text",
+                      title: "Red",
+                      payload: "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+                  },
+                  {
+                      content_type: "text",
+                      title: "Green",
+                      payload: "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+                  }
+              ]
+          }
+      }
+  };
 
   callSendAPI(messageData);
 }
